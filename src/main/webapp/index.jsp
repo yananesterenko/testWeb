@@ -18,6 +18,7 @@
                 <button type="submit">Submit</button>
             </div>
         </form>
+
         <div class="row row-no-margin-sm-up">
             ::before
             <div id="secureOrClassicLoginPane" class="col-xs-24">
