@@ -1,11 +1,39 @@
-package Service;
+package service;
 
-import Model.User;
+import dao.ConnectionPostgress;
+import dao.UserDaoImpl;
+import model.User;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class UserService {
 
-    User user = new User();
-    public User getUserByLogin(){
+
+    public static User getUserByLoginAndPassword(String login, String password) {
+        User user = null;
+        try {
+            Connection connection = new ConnectionPostgress().getConnection();
+            user = UserDaoImpl.getUserByLoginPass(login, password, connection);
+            connection.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return user;
     }
+
+    public static User addUser(String firstname, String secondname, String login, String password) {
+        User user = null;
+        try {
+            Connection connection = new ConnectionPostgress().getConnection();
+            user = UserDaoImpl.addUser(firstname, secondname,login, password, connection);
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+
 }

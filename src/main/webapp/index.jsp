@@ -1,20 +1,18 @@
 <html>
-    <body
-       <h2>My not first page</h2>
+    <body>
+       <h2>My  first page</h2>
 
-        <form method="post"
+        <form name="loginForm" method="post" action ="login" accept-charset="UTF-8">
             <div>
-                <label>Name:
-                    <input type="text" name="name"><br />
-                </label>
+                <label size="25">Name:</label>
+                    <input type="text" name="login" size="25"><br />
 
-                <label>Password:
-                    <input type="password" name="pass"><br />
-                </label>
-                <button type="submit">Submit</button>
+                <label size="25">Password: </label>
+                    <input type="password" name="pass" size="25"><br />
+
+                <button type="submit">Login</button>
+                <a href="jsp/registration.jsp" role = "button">  Registration  </a>
             </div>
         </form>
-
-
     </body>
 </html>
