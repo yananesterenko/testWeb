@@ -21,7 +21,7 @@ public class UserDaoImpl {
                 user.setFirstName(rs.getString(2));
                 user.setLastName(rs.getString(3));
             }
-
+            connection.close();
             //connection.commit();
             // logger.info("Item " + item.getName() + " was added");
         } catch (SQLException e) {
@@ -43,6 +43,7 @@ public class UserDaoImpl {
             stm.setString(4, pass);
             stm.executeUpdate();
             connection.commit();
+            connection.close();
             user.setFirstName(firstname);
             user.setLastName(secondname);
             user.setLogin(login);

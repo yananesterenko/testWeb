@@ -1,0 +1,29 @@
+
+body {
+    padding: 0;
+    margin: 0;
+
+  font-family: Arial, Verdana,  sans-serif; /* Семейство шрифтов */
+  font-size: 11pt; /* Размер основного шрифта в пунктах  */
+  background-color: #c3f7ad; /* Цвет фона веб-страницы */
+  color: #333; /* Цвет основного текста */
+
+}
+
+header{
+  background: url(../images/image.jpg);
+  hight: 20px
+}
+.text-red {
+    color: red;
+  }
+
+
+.text-green {
+    color: green;
+  }
+
+article a.img{
+    width: 20px;
+    height: 20px;
+}

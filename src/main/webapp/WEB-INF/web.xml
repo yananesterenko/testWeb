@@ -6,19 +6,11 @@
   <display-name>Archetype Created Web Application</display-name>
 
   <welcome-file-list>
-    <welcome-file>index.xhtml</welcome-file>
+    <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
   </welcome-file-list>
 
-  <servlet>
-    <servlet-name>main-servlet</servlet-name>
-    <servlet-class>servlet.MainPageServlet</servlet-class>
-  </servlet>
 
-  <servlet-mapping>
-    <servlet-name>main-servlet</servlet-name>
-    <url-pattern>/mainPage</url-pattern>
-  </servlet-mapping>
 
   <servlet>
     <servlet-name>login-servlet</servlet-name>

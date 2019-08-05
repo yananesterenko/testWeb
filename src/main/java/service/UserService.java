@@ -14,24 +14,21 @@ public class UserService {
         User user = null;
         try {
             Connection connection = new ConnectionPostgress().getConnection();
+            if (connection != null){
             user = UserDaoImpl.getUserByLoginPass(login, password, connection);
-            connection.close();
-
+            connection.close();}
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
         return user;
     }
 
     public static User addUser(String firstname, String secondname, String login, String password) {
         User user = null;
-        try {
-            Connection connection = new ConnectionPostgress().getConnection();
-            user = UserDaoImpl.addUser(firstname, secondname,login, password, connection);
-            connection.close();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        Connection connection = new ConnectionPostgress().getConnection();
+        user = UserDaoImpl.addUser(firstname, secondname,login, password, connection);
+
         return user;
     }
 
