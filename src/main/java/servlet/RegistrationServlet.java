@@ -5,19 +5,21 @@ import service.UserService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
-public class UserRegistrationServlet extends HttpServlet {
+@WebServlet("/registration")
+public class RegistrationServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse respons) throws ServletException, IOException {
-        String user = req.getParameter("user");
-
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("/registration.jsp").forward(req, resp);
     }
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String firstname = req.getParameter("firstName");
@@ -30,8 +32,8 @@ public class UserRegistrationServlet extends HttpServlet {
         } else {
             User user = UserService.addUser(firstname, secondname, login, password);
             if (user != null) {
-                RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/collection.jsp");
-                dispatcher.forward(req, resp);
+                resp.sendRedirect("jsp/collection.jsp");
+
             } else {
                 RequestDispatcher dispatcher = req.getRequestDispatcher("/jsp/wrongRegistration.jsp");
                 HttpSession session = req.getSession();

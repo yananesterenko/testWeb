@@ -47,6 +47,11 @@
             <artifactId>spring-web</artifactId>
             <version>1.0.2</version>
         </dependency>
+        <dependency>
+            <groupId>com.axiomsl</groupId>
+            <artifactId>saml-metadata-generator</artifactId>
+            <version>10.0.19</version>
+        </dependency>
 
 
     </dependencies>

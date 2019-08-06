@@ -33,7 +33,7 @@ public class UserDaoImpl {
 
     public static User addUser(String firstname, String secondname, String login, String pass, Connection connection) {
         String sql = "INSERT INTO users (firstname, lastname, login, password) VALUES (?, ?, ?, ?)";
-        User user = new User();
+        User user = null;
         try {
             connection.setAutoCommit(false);
             PreparedStatement stm = connection.prepareStatement(sql);
@@ -43,13 +43,18 @@ public class UserDaoImpl {
             stm.setString(4, pass);
             stm.executeUpdate();
             connection.commit();
-            connection.close();
-            user.setFirstName(firstname);
-            user.setLastName(secondname);
-            user.setLogin(login);
-            user.setPassword(pass);
 
-            System.out.println("User " + firstname + " was added ");
+            String sqlSelect = "SELECT id FROM users where firstname = '"+ firstname + "' and  lastname = '" +secondname +"'" ;
+            stm = connection.prepareStatement(sqlSelect);
+            ResultSet rs = stm.executeQuery();
+            if (rs.next()) {
+                user = new User();
+                user.setFirstName(firstname);
+                user.setLastName(secondname);
+                user.setLogin(login);
+                user.setPassword(pass);
+            }
+            connection.close();
             // logger.info("Item " + item.getName() + " was added");
         } catch (SQLException e) {
             e.printStackTrace();

@@ -1,9 +1,10 @@
 <html>
     <body>
 
-    <form action="mainPage" method="post">
+    <form  method="post">
         <h2> Something wrong in registration data for user <%=session.getAttribute("user")%> </h2>
-        <button type="submit">return</button>
+         <a href="jsp/registration.jsp"> <input type="button" value="Return to registration"> </a>
+
     </form>
     </body>
 </html>

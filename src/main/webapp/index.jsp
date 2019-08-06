@@ -22,10 +22,12 @@
                 <td><input type="text" name="login" size="25"><br /></td>
                 <td><label size="25">Password: </label></td>
                 <td><input type="password" name="pass" size="25"><br /></td>
-
                 <button type="submit">Login</button>
-                <a href="jsp/registration.jsp" role = "button">  Registration  </a>
             </div>
         </form>
+        <form name="ll" method="get" action ="${pageContext.request.contextPath}/registration">
+            <button type="submit">Registration</button>
+        </form>
+
     </body>
 </html>
